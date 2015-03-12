@@ -6,12 +6,17 @@ import java.util.Stack;
  */
 public class Field {
 
-    int[][] field;
-    int cubeLen;
-    Cell[][] cellField;
-    int xLen;
-    int yLen;
-    int len;
+	public static final int ORDERED = 0;
+	public static final int RANDOM = 1;
+	public static final int ALL = 0;
+	public static final int EMPTY = 1;
+	public static final int FILLED = 2;
+    private int[][] field;
+    private int cubeLen;
+    private Cell[][] cellField;
+    private int xLen;
+    private int yLen;
+    private int len;
 
     /**
      *
