@@ -56,13 +56,14 @@ public class Field {
         Stack<Cell> resultStack = new Stack<Cell>();
         ArrayList<Cell> tempList = new ArrayList<Cell>();
 
-        if(order == 0) {
+        if(order == ORDERED) {
 
-            if (type == 0) {
+            if (type == ALL) {
 
                 for (int i = 0; i < xLen; i++) {
                     for (int j = 0; j < yLen; j++) {
-                        resultStack.push(cellField[i][j]); //Will stack make it backwards?
+                        resultStack.push(cellField[i][j]); //Will stack make it backwards? The first thing you push on the stack will be the last to come out
+                     
                     }
                 }
 
