@@ -45,6 +45,14 @@ public class Field {
         return field[x][y];
     }
 
+    public int[][] getField() {
+        return field;
+    }
+
+    public void setField(int[][] field) {
+        this.field = field;
+    }
+
     /**
      *
      * order: ORDERED = 0, RANDOM = 1

@@ -5,12 +5,14 @@ public class SudokuPrinter {
 
     SudokuPrinter(Field f) {
 
-        for (int i = 0; i < f.xLen; i++) {
-            for (int j = 0; j < f.xLen; j++) {
-                if (f.field[i][j] > 9) {
-                    System.out.print(f.field[i][j] + " ");
+        int[][] grid = f.getField();
+
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid.length; j++) {
+                if (grid[i][j] > 9) {
+                    System.out.print(grid[i][j] + " ");
                 } else {
-                    System.out.print(" " + f.field[i][j] + " ");
+                    System.out.print(" " + grid[i][j] + " ");
                 }
 
             }

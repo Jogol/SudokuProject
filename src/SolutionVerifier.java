@@ -3,9 +3,12 @@
  */
 public class SolutionVerifier {
 
+    static int cubeLen;
+
     public boolean verifyField(Field field) {
 
-        int len = field.len;
+        int len = field.getField().length;
+        cubeLen = (int)Math.sqrt(len);
 
 
         for (int i = 0; i < len; i++) {
@@ -23,12 +26,12 @@ public class SolutionVerifier {
     }
 
     private static boolean checkSqr(int value, int row, int col, Field field) {
-        int sqrRow = row/field.cubeLen;
-        int sqrCol = col/field.cubeLen;
+        int sqrRow = row/cubeLen;
+        int sqrCol = col/cubeLen;
         int numOfVal = 0;
-        for (int i = 0; i < field.cubeLen; i++) {
-            for (int j = 0; j < field.cubeLen; j++) {
-                if (field.getValue((sqrRow*field.cubeLen)+i, (sqrCol*field.cubeLen)+j) == value) {
+        for (int i = 0; i < cubeLen; i++) {
+            for (int j = 0; j < cubeLen; j++) {
+                if (field.getValue((sqrRow*cubeLen)+i, (sqrCol*cubeLen)+j) == value) {
                     numOfVal++;
                 }
             }
@@ -43,7 +46,7 @@ public class SolutionVerifier {
 
     private static boolean checkCol(int value, int row, int col, Field field) {
         int numOfVal = 0;
-        for (int i = 0; i < field.len; i++) {
+        for (int i = 0; i < field.getField().length; i++) {
             if (field.getValue(i, col) == value) {
                 numOfVal++;
             }
@@ -57,7 +60,7 @@ public class SolutionVerifier {
 
     private boolean checkRow(int value, int row, int col, Field field) {
         int numOfVal = 0;
-        for (int i = 0; i < field.len; i++) {
+        for (int i = 0; i < field.getField().length; i++) {
             if (field.getValue(row, i) == value) {
                 numOfVal++;
             }

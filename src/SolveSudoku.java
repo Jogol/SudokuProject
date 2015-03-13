@@ -12,10 +12,10 @@ public class SolveSudoku {
     ArrayList<Integer> template = new ArrayList<Integer>();
 
     public Field SolveSudoku(Field f) {
-        this.grid = f.field;
+        this.grid = f.getField();
         sqrt = (int)Math.sqrt(grid.length);
 
-        for (int i = 0; i < f.xLen; i++) {
+        for (int i = 0; i < grid.length; i++) {
             template.add(i+1);
         }
 
@@ -24,7 +24,7 @@ public class SolveSudoku {
         else
             System.out.println("Fail...");
 
-        f.field = this.grid;
+        f.setField(this.grid);
         return f;
     }
 
