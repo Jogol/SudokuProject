@@ -5,6 +5,11 @@ public class SolutionVerifier {
 
     static int cubeLen;
 
+    /**
+     *
+     * @param field The field to be tested
+     * @return Returns True if the field was correct
+     */
     public boolean verifyField(Field field) {
 
         int len = field.getField().length;

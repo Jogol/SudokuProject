@@ -5,12 +5,17 @@ import java.util.Collections;
  * Created by Jonathan on 13/03/2015.
  * Based on the backtracking solver, but added forward checking and constraint propagation.
  * Possible improvement: if a cell has value 0 and 0 possibleValues, return false.
+ * Possible optimization: instead of possible values being an arrayList (with O(n))
+ * for finding Object o (removing ints), it could be an boolean[] of size grid.length
+ * Considering the time improvements I got from other similar optimizations though,
+ * I can't imagine it would do that much, they're only ever 9-25 long.
  */
 public class ImprovedBacktracking {
 
     int[][] grid;
     int globalRow, globalCol;
     int sqrt;
+    int size;
     ArrayList<Integer> template = new ArrayList<Integer>();
 
     //Every cell in the matrix(sudoku field) has an arraylist with its possible values.
@@ -19,18 +24,19 @@ public class ImprovedBacktracking {
 
     public Field SolveSudoku(Field f) {
         this.grid = f.getField();
-        sqrt = (int) Math.sqrt(grid.length);
+        size = grid.length;
+        sqrt = (int) Math.sqrt(size);
 
-        for (int i = 0; i < grid.length; i++) {
+        for (int i = 0; i < size; i++) {
             template.add(i + 1);
         }
 
         //Create possibleValues list, with all values possible.
-        for (int i = 0; i < grid.length; i++) {
-            ArrayList<ArrayList<Integer>> rowList = new ArrayList<ArrayList<Integer>>();
-            for (int j = 0; j < grid.length; j++) {
-                ArrayList<Integer> colList = new ArrayList<Integer>();
-                for (int k = 0; k < grid.length; k++) {
+        for (int i = 0; i < size; i++) {
+            ArrayList<ArrayList<Integer>> rowList = new ArrayList<ArrayList<Integer>>(size);
+            for (int j = 0; j < size; j++) {
+                ArrayList<Integer> colList = new ArrayList<Integer>(size);
+                for (int k = 0; k < size; k++) {
                     colList.add(k + 1);
                 }
                 rowList.add(colList);
@@ -49,7 +55,7 @@ public class ImprovedBacktracking {
 
 
         if (BacktrackSudoku(this.grid))
-            System.out.println("Success!");
+            System.out.println("");
         else
             System.out.println("Fail...");
 
@@ -79,13 +85,13 @@ public class ImprovedBacktracking {
         for (Integer num : ints) {
 
             grid[row][col] = num;
-            upDateAll(row, col, num);
+            ArrayList<int[]> updated = upDateAll(row, col, num);
 
             if (BacktrackSudoku(grid))
                 return true;
 
             //Reset possibleValueLists here
-            resetAll(row, col, grid[row][col]);
+            resetSpecific(updated, num);
             grid[row][col] = 0;
 
 
@@ -93,42 +99,12 @@ public class ImprovedBacktracking {
         return false;
     }
 
-    /**
-     * Will undo the input of num
-     *
-     * @param row
-     * @param col
-     * @param num the value we are undoing, and setting to 0 basically
-     */
-    private void resetAll(int row, int col, int num) {
-        resetRow(row, num);
-        resetCol(col, num);
-        resetBox(row - row % sqrt, col - col % sqrt, num);
-    }
-
-    private void resetRow(int row, int num) {
-        for (int col = 0; col < grid.length; col++) {
-            if (!possibleValues.get(row).get(col).contains(num))
-                possibleValues.get(row).get(col).add(num);
+    private void resetSpecific(ArrayList<int[]> updated, int num) {
+        for(int[] pos : updated) {
+            //if (!possibleValues.get(pos[0]).get(pos[1]).contains(num)) TODO if problems occur, test adding this back, but since we get a list of changed objects, they should not be there
+                possibleValues.get(pos[0]).get(pos[1]).add(num);
         }
     }
-
-    private void resetCol(int col, int num) {
-        for (int row = 0; row < grid.length; row++) {
-            if (!possibleValues.get(row).get(col).contains(num))
-                possibleValues.get(row).get(col).add(num);
-        }
-    }
-
-    private void resetBox(int boxStartRow, int boxStartCol, int num) {
-        for (int row = 0; row < sqrt; row++) {
-            for (int col = 0; col < sqrt; col++) {
-                if (!possibleValues.get(row + boxStartRow).get(col + boxStartCol).contains(num))
-                    possibleValues.get(row + boxStartRow).get(col + boxStartCol).add(num);
-            }
-        }
-    }
-
 
     /**
      * Takes position in the array, and the added values, then updates, row, column and box.
@@ -136,35 +112,50 @@ public class ImprovedBacktracking {
      * @param row
      * @param col
      * @param num the changed (new) value
+     * @return list of the changed positions
      */
-    private void upDateAll(int row, int col, int num) {
-        updateRow(row, num);
-        updateCol(col, num);
-        updateBox(row - row % sqrt, col - col % sqrt, num);
+    private ArrayList<int[]> upDateAll(int row, int col, int num) {
+        //All updated values, can max be size size*2 + sqrt*sqrt (only the row, column and box can be changed
+        ArrayList<int[]> list = new ArrayList<int[]>(size*2 + sqrt*sqrt);
+        list.addAll(updateRow(row, num));
+        list.addAll(updateCol(col, num));
+        list.addAll(updateBox(row - row % sqrt, col - col % sqrt, num));
+        return list;
     }
 
-    private void updateRow(int row, int num) {
+    private ArrayList<int[]> updateRow(int row, int num) {
+        ArrayList<int[]> list = new ArrayList<int[]>(size);
         for (int col = 0; col < grid.length; col++) {
-            if (possibleValues.get(row).get(col).contains(num))
-                possibleValues.get(row).get(col).remove(new Integer(num));
-        }
-
-    }
-
-    private void updateCol(int col, int num) {
-        for (int row = 0; row < grid.length; row++) {
-            if (possibleValues.get(row).get(col).contains(num))
-                possibleValues.get(row).get(col).remove(new Integer(num));
-        }
-    }
-
-    private void updateBox(int boxStartRow, int boxStartCol, int num) {
-        for (int row = 0; row < sqrt; row++) {
-            for (int col = 0; col < sqrt; col++) {
-                if (possibleValues.get(row + boxStartRow).get(col + boxStartCol).contains(num))
-                    possibleValues.get(row + boxStartRow).get(col + boxStartCol).remove(new Integer(num));
+            if (possibleValues.get(row).get(col).remove(new Integer(num))) {
+                int[] pos = {row, col};
+                list.add(pos);
             }
         }
+        return list;
+    }
+
+    private ArrayList<int[]> updateCol(int col, int num) {
+        ArrayList<int[]> list = new ArrayList<int[]>(size);
+        for (int row = 0; row < grid.length; row++) {
+            if (possibleValues.get(row).get(col).remove(new Integer(num))) {
+                int[] pos = {row, col};
+                list.add(pos);
+            }
+        }
+        return list;
+    }
+
+    private ArrayList<int[]> updateBox(int boxStartRow, int boxStartCol, int num) {
+        ArrayList<int[]> list = new ArrayList<int[]>(sqrt * sqrt);
+        for (int row = 0; row < sqrt; row++) {
+            for (int col = 0; col < sqrt; col++) {
+                if (possibleValues.get(row + boxStartRow).get(col + boxStartCol).remove(new Integer(num))) {
+                    int[] pos = {row + boxStartRow, col + boxStartCol};
+                    list.add(pos);
+                }
+            }
+        }
+        return list;
     }
 
     private boolean FindUnassignedLocation() {

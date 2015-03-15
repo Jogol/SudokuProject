@@ -2,27 +2,62 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Field field = new Field(createEmpty(9));
-        SolveSudoku sudokuSolver = new SolveSudoku();
-        ImprovedBacktracking impSolver = new ImprovedBacktracking();
-
-        long start = System.currentTimeMillis();
-        Field fixed = impSolver.SolveSudoku(field);
-        long millis = System.currentTimeMillis() - start;
-
-        long second = (millis / 1000) % 60;
-        long minute = (millis / (1000 * 60)) % 60;
-        long hour = (millis / (1000 * 60 * 60)) % 24;
-
-        String time = String.format("%02d:%02d:%02d:%d", hour, minute, second, millis);
-
+        //Field field = new Field(createEmpty(9));
+        //SolveSudoku basic = new SolveSudoku();
+        //ImprovedBacktracking better = new ImprovedBacktracking();
         SolutionVerifier sv = new SolutionVerifier();
-        if (sv.verifyField(fixed)) {
-            System.out.println("It is correct, time was: " + time);
-        } else {
-            System.out.println("It is incorrect!");
+
+        long programStart = System.currentTimeMillis();
+        //Field fixed = impSolver.SolveSudoku(field);
+        //Field fixed = sudokuSolver.SolveSudoku(field);
+        //long millis = System.currentTimeMillis() - start;
+
+        //Loop trying 10 times to get an average.
+
+        int laps = 1000;
+        long totalNanos = 0;
+        for (int i = 0; i < laps; i++) {
+            Field field = new Field(createEmpty(9));
+            ImprovedBacktracking better = new ImprovedBacktracking();
+            SolveSudoku basic = new SolveSudoku();
+
+            long start = System.nanoTime();
+            Field fixed = better.SolveSudoku(field);
+            totalNanos += System.nanoTime() - start;
+            if (!sv.verifyField(fixed)) {
+                System.out.println("Incorrect field! Quitting!");
+                return;
+            } else {
+                System.out.println("");
+            }
+
         }
-        SudokuPrinter sP = new SudokuPrinter(fixed);
+        long programStop = System.currentTimeMillis();
+
+        float averageNanos = totalNanos/laps;
+
+        long chosenNanos = totalNanos/laps;
+
+        long nanos = (chosenNanos) % 1000000;
+        long millis = (chosenNanos / 1000000) % 1000;
+        long second = (millis / 1000) % 60;
+        long minute = (millis / (1000 * 60));
+        //long hour = (millis / (1000 * 60 * 60)) % 24;
+
+        String time = String.format("Average time: %02d minutes, %02d seconds, %02d milliseconds, and %d nanoseconds", minute, second, millis, nanos); //%02d minutes, %02d seconds,
+        System.out.println(time);
+
+        long programMillis = programStop - programStart;
+        long programSecond = (programMillis / 1000) % 60;
+        long programMinutes = (programMillis / (1000 * 60));
+        //long hour = (millis / (1000 * 60 * 60)) % 24;
+
+        String programTime = String.format("Program runtime: %02d minutes, %02d seconds, %02d milliseconds", programMinutes, programSecond, programMillis); //%02d minutes, %02d seconds,
+        System.out.println(programTime);
+
+
+
+        //SudokuPrinter sP = new SudokuPrinter(fixed);
     }
 
     private static int[][] createSimpleField() {

@@ -21,7 +21,8 @@ public class SolveSudoku {
         }
 
         if(BacktrackSudoku(this.grid))
-            System.out.println("Success!");
+            //System.out.println("Success!");
+            System.out.println("");
         else
             System.out.println("Fail...");
 
