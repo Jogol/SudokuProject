@@ -3,6 +3,7 @@ import java.util.Collections;
 
 /**
  * Created by Jonathan on 09/03/2015.
+ * Uses basic backtracking.
  */
 public class SolveSudoku {
 

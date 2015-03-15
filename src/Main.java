@@ -2,11 +2,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Field field = new Field(createCustom(16));
+        Field field = new Field(createEmpty(9));
         SolveSudoku sudokuSolver = new SolveSudoku();
+        ImprovedBacktracking impSolver = new ImprovedBacktracking();
 
         long start = System.currentTimeMillis();
-        Field fixed = sudokuSolver.SolveSudoku(field);
+        Field fixed = impSolver.SolveSudoku(field);
         long millis = System.currentTimeMillis() - start;
 
         long second = (millis / 1000) % 60;
@@ -39,7 +40,7 @@ public class Main {
     }
 
 
-    private static int[][] createCustom(int size) {
+    private static int[][] createEmpty(int size) {
         int[][] field = new int[size][size];
 
         for (int i = 0; i < size; i++) {
