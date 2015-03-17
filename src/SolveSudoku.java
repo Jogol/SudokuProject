@@ -12,8 +12,8 @@ public class SolveSudoku {
     int sqrt;
     ArrayList<Integer> template = new ArrayList<Integer>();
 
-    public Field SolveSudoku(Field f) {
-        this.grid = f.getField();
+    public int[][] SolveSudoku(int[][] f) {
+        this.grid = f;
         sqrt = (int)Math.sqrt(grid.length);
 
         for (int i = 0; i < grid.length; i++) {
@@ -26,8 +26,7 @@ public class SolveSudoku {
         else
             System.out.println("Fail...");
 
-        f.setField(this.grid);
-        return f;
+        return grid;
     }
 
     boolean BacktrackSudoku(int[][] g) {
@@ -36,7 +35,7 @@ public class SolveSudoku {
         int row, col;
 
         if (!FindUnassignedLocation())
-            return true; //We are done
+            return true; //We are done if there are no zeros
         row = globalRow;
         col = globalCol;
 

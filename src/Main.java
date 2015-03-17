@@ -22,7 +22,7 @@ public class Main {
             SolveSudoku basic = new SolveSudoku();
 
             long start = System.nanoTime();
-            Field fixed = better.SolveSudoku(field);
+            int[][] fixed = better.SolveSudoku(createEmpty(9));
             totalNanos += System.nanoTime() - start;
             if (!sv.verifyField(fixed)) {
                 System.out.println("Incorrect field! Quitting!");

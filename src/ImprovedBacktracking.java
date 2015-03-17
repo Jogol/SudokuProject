@@ -12,18 +12,19 @@ import java.util.Collections;
  */
 public class ImprovedBacktracking {
 
-    int[][] grid;
+    int[][] grid; //The sudoku grid we work on
     int globalRow, globalCol;
     int sqrt;
     int size;
+    boolean deadBranch = false; //If there is a cell with value 0 and no possible values, this branch is dead
     ArrayList<Integer> template = new ArrayList<Integer>();
 
     //Every cell in the matrix(sudoku field) has an arraylist with its possible values.
     ArrayList<ArrayList<ArrayList<Integer>>> possibleValues = new ArrayList<ArrayList<ArrayList<Integer>>>();
 
 
-    public Field SolveSudoku(Field f) {
-        this.grid = f.getField();
+    public int[][] SolveSudoku(int[][] f) {
+        this.grid = f;
         size = grid.length;
         sqrt = (int) Math.sqrt(size);
 
@@ -59,8 +60,7 @@ public class ImprovedBacktracking {
         else
             System.out.println("Fail...");
 
-        f.setField(this.grid);
-        return f;
+        return grid;
     }
 
     boolean BacktrackSudoku(int[][] g) {
@@ -86,6 +86,12 @@ public class ImprovedBacktracking {
 
             grid[row][col] = num;
             ArrayList<int[]> updated = upDateAll(row, col, num);
+            if (deadBranch) {
+                deadBranch = false;
+                resetSpecific(updated, num);
+                grid[row][col] = 0;
+                return false;
+            }
 
             if (BacktrackSudoku(grid))
                 return true;
@@ -129,6 +135,8 @@ public class ImprovedBacktracking {
             if (possibleValues.get(row).get(col).remove(new Integer(num))) {
                 int[] pos = {row, col};
                 list.add(pos);
+                if (possibleValues.get(row).get(col).isEmpty() && grid[row][col] == 0)
+                    deadBranch = true;
             }
         }
         return list;
@@ -140,6 +148,8 @@ public class ImprovedBacktracking {
             if (possibleValues.get(row).get(col).remove(new Integer(num))) {
                 int[] pos = {row, col};
                 list.add(pos);
+                if (possibleValues.get(row).get(col).isEmpty() && grid[row][col] == 0)
+                    deadBranch = true;
             }
         }
         return list;
@@ -152,6 +162,8 @@ public class ImprovedBacktracking {
                 if (possibleValues.get(row + boxStartRow).get(col + boxStartCol).remove(new Integer(num))) {
                     int[] pos = {row + boxStartRow, col + boxStartCol};
                     list.add(pos);
+                    if (possibleValues.get(row + boxStartRow).get(col + boxStartCol).isEmpty() && grid[row + boxStartRow][col + boxStartCol] == 0)
+                        deadBranch = true;
                 }
             }
         }
