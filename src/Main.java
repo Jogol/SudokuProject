@@ -1,69 +1,127 @@
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        //Field field = new Field(createEmpty(9));
-        //SolveSudoku basic = new SolveSudoku();
-        //ImprovedBacktracking better = new ImprovedBacktracking();
         SolutionVerifier sv = new SolutionVerifier();
+        PuzzleGenerator pg = new PuzzleGenerator();
+        SudokuPrinter sp = new SudokuPrinter();
 
         long programStart = System.currentTimeMillis();
-        //Field fixed = impSolver.SolveSudoku(field);
-        //Field fixed = sudokuSolver.SolveSudoku(field);
-        //long millis = System.currentTimeMillis() - start;
 
-        //Loop trying 10 times to get an average.
+        int puzzles = 100;
+        int size = 9;
+        ArrayList<int[][]> puzzleList = pg.PuzzleGenerator(size, puzzles);
+        ArrayList<int[][]> puzzleCopy = copyList(puzzleList);
 
-        int laps = 1000;
-        long totalNanos = 0;
-        for (int i = 0; i < laps; i++) {
-            Field field = new Field(createEmpty(9));
-            ImprovedBacktracking better = new ImprovedBacktracking();
-            SolveSudoku basic = new SolveSudoku();
+
+        /**
+         * Test using the basic solver
+         */
+        long firstTotalNanos = 0;
+        for (int[][] puzzle : puzzleList) {
+
+            SolveSudoku sol = new SolveSudoku();
 
             long start = System.nanoTime();
-            int[][] fixed = better.SolveSudoku(createEmpty(9));
-            totalNanos += System.nanoTime() - start;
+            int[][] fixed = sol.SolveSudoku(puzzle);
+            long stop = System.nanoTime();
+
             if (!sv.verifyField(fixed)) {
-                System.out.println("Incorrect field! Quitting!");
+                System.out.println("Incorrect field in basic! Quitting!");
+                sp.Print(fixed);
                 return;
             } else {
-                System.out.println("");
+                firstTotalNanos += stop - start;
             }
 
         }
+
+        /**
+         * Test using the improved solver
+         */
+        long secondTotalNanos = 0;
+        for (int[][] puzzle : puzzleCopy) {
+
+            //ImprovedBacktracking imp = new ImprovedBacktracking();
+            FCBT imp = new FCBT();
+
+            long start = System.nanoTime();
+            int[][] fixed = imp.SolveSudoku(puzzle);
+            long stop = System.nanoTime();
+
+            if (!sv.verifyField(fixed)) {
+                System.out.println("Incorrect field in improved! Quitting!");
+                sp.Print(fixed);
+                return;
+            } else {
+                secondTotalNanos += stop - start;
+            }
+
+        }
+
         long programStop = System.currentTimeMillis();
 
-        float averageNanos = totalNanos/laps;
 
-        long chosenNanos = totalNanos/laps;
+        long firstAverageNanos = firstTotalNanos/puzzles;
 
-        long nanos = (chosenNanos) % 1000000;
-        long millis = (chosenNanos / 1000000) % 1000;
-        long second = (millis / 1000) % 60;
-        long minute = (millis / (1000 * 60));
-        //long hour = (millis / (1000 * 60 * 60)) % 24;
+        System.out.println("Basic backtracker:\nAverage time over " + puzzles + " puzzles: " + timeFormatterNanos(firstAverageNanos));
 
-        String time = String.format("Average time: %02d minutes, %02d seconds, %02d milliseconds, and %d nanoseconds", minute, second, millis, nanos); //%02d minutes, %02d seconds,
-        System.out.println(time);
+        long secondAverageNanos = secondTotalNanos/puzzles;
+
+        System.out.println("Improved backtracker:\nAverage time over " + puzzles + " puzzles: " + timeFormatterNanos(secondAverageNanos));
+
 
         long programMillis = programStop - programStart;
-        long programSecond = (programMillis / 1000) % 60;
-        long programMinutes = (programMillis / (1000 * 60));
-        //long hour = (millis / (1000 * 60 * 60)) % 24;
 
-        String programTime = String.format("Program runtime: %02d minutes, %02d seconds, %02d milliseconds", programMinutes, programSecond, programMillis); //%02d minutes, %02d seconds,
-        System.out.println(programTime);
+        System.out.println("Program ran for: " + timeFormatterMillis(programMillis));
 
 
 
-        //SudokuPrinter sP = new SudokuPrinter(fixed);
+
+        //
+    }
+
+    private static ArrayList<int[][]> copyList(ArrayList<int[][]> puzzleList) {
+
+        ArrayList<int[][]> copy = new ArrayList<int[][]>();
+        for(int[][] puzzle : puzzleList) {
+            int[][] fieldCopy = new int[puzzle.length][puzzle.length];
+            for (int i = 0; i < puzzle.length; i++) {
+                for (int j = 0; j < puzzle.length; j++) {
+                    fieldCopy[i][j] = puzzle[i][j];
+                }
+            }
+            copy.add(fieldCopy);
+        }
+
+        return copy;
+
+    }
+
+    private static String timeFormatterNanos(long inNanos) {
+        long nanos = (inNanos) % 1000000;
+        long millis = (inNanos / 1000000) % 1000;
+        long seconds = (millis / 1000) % 60;
+        long minutes = (millis / (1000 * 60));
+
+        String time = String.format("%02d seconds, %02d milliseconds, and %d nanoseconds", seconds, millis, nanos);
+        return time;
+    }
+
+    private static String timeFormatterMillis(long millis) {
+        long seconds = (millis / 1000) % 60;
+        long minutes = (millis / (1000 * 60));
+
+        String time = String.format("%02d minutes, %02d seconds, %02d milliseconds", minutes, seconds, millis);
+        return time;
     }
 
     private static int[][] createSimpleField() {
         int[][] simpleField = { {1,4,7,2,5,8,3,6,9} , {2,5,8,3,6,9,4,7,1} , {3,6,9,4,7,1,5,8,2}
-            , {4,7,1,5,8,2,6,9,3} , {5,8,2,6,9,3,7,1,4} , {6,9,3,7,1,4,8,2,5} , {7,1,4,8,2,5,9,3,6}
-            , {8,2,5,9,3,6,1,4,7} , {9,3,6,1,4,7,2,5,8}};
+                , {4,7,1,5,8,2,6,9,3} , {5,8,2,6,9,3,7,1,4} , {6,9,3,7,1,4,8,2,5} , {7,1,4,8,2,5,9,3,6}
+                , {8,2,5,9,3,6,1,4,7} , {9,3,6,1,4,7,2,5,8}};
         return simpleField;
     }
 

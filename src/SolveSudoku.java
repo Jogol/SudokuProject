@@ -20,11 +20,9 @@ public class SolveSudoku {
             template.add(i+1);
         }
 
-        if(BacktrackSudoku(this.grid))
-            //System.out.println("Success!");
-            System.out.println("");
-        else
+        if(!BacktrackSudoku(this.grid))
             System.out.println("Fail...");
+
 
         return grid;
     }

@@ -2,15 +2,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Created by Jonathan on 13/03/2015.
- * Based on the backtracking solver, but added forward checking and constraint propagation.
- * Possible improvement: if a cell has value 0 and 0 possibleValues, return false.
- * Possible optimization: instead of possible values being an arrayList (with O(n))
- * for finding Object o (removing ints), it could be an boolean[] of size grid.length
- * Considering the time improvements I got from other similar optimizations though,
- * I can't imagine it would do that much, they're only ever 9-25 long.
+ * Created by Jonathan on 17/03/2015.
+ * Forward Checking BackTracker
  */
-public class ImprovedBacktracking {
+public class FCBT {
 
     int[][] grid; //The sudoku grid we work on
     int globalRow, globalCol;
@@ -65,23 +60,6 @@ public class ImprovedBacktracking {
         grid = g;
         int row, col;
 
-        //Constraint propagation: Checks for spots with only 1 possible value
-
-        ArrayList<int[]> cPChangedList = new ArrayList<int[]>();
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if(possibleValues.get(i).get(j).isEmpty() && grid[i][j] == 0) {
-                    return false;
-                } else if (possibleValues.get(i).get(j).size() == 1 && grid[i][j] == 0) {
-                    int val = possibleValues.get(i).get(j).get(0);
-                    grid[i][j] = val;
-                    ArrayList<int[]> updated = upDateAll(i, j, val);
-                }
-            }
-        }
-
-
-        //Below is the backtracking part
         if (!FindUnassignedLocation())
             return true; //If the matrix is full, we are done
 
@@ -113,16 +91,10 @@ public class ImprovedBacktracking {
         return false;
     }
 
-
-    /**
-     *
-     * @param updated A list of int[], where [0] is row and [1] is column
-     * @param num the value that was removed
-     */
     private void resetSpecific(ArrayList<int[]> updated, int num) {
         for(int[] pos : updated) {
             //if (!possibleValues.get(pos[0]).get(pos[1]).contains(num)) TODO if problems occur, test adding this back, but since we get a list of changed objects, they should not be there
-                possibleValues.get(pos[0]).get(pos[1]).add(num);
+            possibleValues.get(pos[0]).get(pos[1]).add(num);
         }
     }
 
