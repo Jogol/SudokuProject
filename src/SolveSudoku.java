@@ -10,6 +10,7 @@ public class SolveSudoku {
     int[][] grid;
     int globalRow, globalCol;
     int sqrt;
+    int iterations;
     ArrayList<Integer> template = new ArrayList<Integer>();
 
     public int[][] SolveSudoku(int[][] f) {
@@ -24,6 +25,7 @@ public class SolveSudoku {
             System.out.println("Fail...");
 
 
+        //System.out.println(iterations);
         return grid;
     }
 
@@ -42,6 +44,7 @@ public class SolveSudoku {
 
         //Ordered for now
         for (Integer num : ints) {
+            iterations++;
             if (isSafe(grid, row, col, num)) {
                 grid[row][col] = num;
 

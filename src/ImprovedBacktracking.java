@@ -16,6 +16,7 @@ public class ImprovedBacktracking {
     int globalRow, globalCol;
     int sqrt;
     int size;
+    int iterations = 0;
     ArrayList<Integer> template = new ArrayList<Integer>();
 
     //Every cell in the matrix(sudoku field) has an arraylist with its possible values.
@@ -57,6 +58,9 @@ public class ImprovedBacktracking {
         if (!BacktrackSudoku(this.grid))
             System.out.println("Fail...");
 
+        //if (iterations>1000000)
+        //    System.out.println(iterations);
+
         return grid;
     }
 
@@ -68,16 +72,26 @@ public class ImprovedBacktracking {
         //Constraint propagation: Checks for spots with only 1 possible value
 
         ArrayList<int[]> cPChangedList = new ArrayList<int[]>();
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if(possibleValues.get(i).get(j).isEmpty() && grid[i][j] == 0) {
-                    return false;
-                } else if (possibleValues.get(i).get(j).size() == 1 && grid[i][j] == 0) {
-                    int val = possibleValues.get(i).get(j).get(0);
-                    grid[i][j] = val;
-                    ArrayList<int[]> updated = upDateAll(i, j, val);
+        ArrayList<int[]> cPValueChanges = new ArrayList<int[]>();
+        whileLoop: while(true) {
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    iterations++;
+                    if(possibleValues.get(i).get(j).isEmpty() && grid[i][j] == 0) {
+                        resetSpecific(cPChangedList);
+                        resetCP(cPValueChanges);
+                        return false;
+                    } else if (possibleValues.get(i).get(j).size() == 1 && grid[i][j] == 0) {
+                        int val = possibleValues.get(i).get(j).get(0);
+                        grid[i][j] = val;
+                        cPChangedList.addAll(upDateAll(i, j, val));
+                        int[] pos = {i, j};
+                        cPValueChanges.add(pos);
+                        continue whileLoop;
+                    }
                 }
             }
+            break;
         }
 
 
@@ -90,14 +104,20 @@ public class ImprovedBacktracking {
 
         //Copy the arraylist of possible values
         ArrayList<Integer> ints = new ArrayList<Integer>(possibleValues.get(row).get(col));
+
+
+        if (ints.isEmpty()) {
+            System.out.println("Empty ints");
+            return false;
+        }
+
         Collections.shuffle(ints);
 
-        if (ints.isEmpty())
-            return false;
 
         //Ordered for now
         for (Integer num : ints) {
 
+            iterations++;
             grid[row][col] = num;
             ArrayList<int[]> updated = upDateAll(row, col, num);
 
@@ -105,24 +125,32 @@ public class ImprovedBacktracking {
                 return true;
 
             //Reset possibleValueLists here
-            resetSpecific(updated, num);
+            resetSpecific(updated);
             grid[row][col] = 0;
 
 
         }
+        resetSpecific(cPChangedList);
+        resetCP(cPValueChanges);
         return false;
+    }
+
+    private void resetCP(ArrayList<int[]> cPValueChanges) {
+        for(int[] pos : cPValueChanges) {
+            grid[pos[0]][pos[1]] = 0;
+        }
     }
 
 
     /**
      *
      * @param updated A list of int[], where [0] is row and [1] is column
-     * @param num the value that was removed
+     * [2] is the changed value
      */
-    private void resetSpecific(ArrayList<int[]> updated, int num) {
+    private void resetSpecific(ArrayList<int[]> updated) {
         for(int[] pos : updated) {
             //if (!possibleValues.get(pos[0]).get(pos[1]).contains(num)) TODO if problems occur, test adding this back, but since we get a list of changed objects, they should not be there
-                possibleValues.get(pos[0]).get(pos[1]).add(num);
+                possibleValues.get(pos[0]).get(pos[1]).add(pos[2]);
         }
     }
 
@@ -147,7 +175,7 @@ public class ImprovedBacktracking {
         ArrayList<int[]> list = new ArrayList<int[]>(size);
         for (int col = 0; col < grid.length; col++) {
             if (possibleValues.get(row).get(col).remove(new Integer(num))) {
-                int[] pos = {row, col};
+                int[] pos = {row, col, num};
                 list.add(pos);
             }
         }
@@ -158,7 +186,7 @@ public class ImprovedBacktracking {
         ArrayList<int[]> list = new ArrayList<int[]>(size);
         for (int row = 0; row < grid.length; row++) {
             if (possibleValues.get(row).get(col).remove(new Integer(num))) {
-                int[] pos = {row, col};
+                int[] pos = {row, col, num};
                 list.add(pos);
             }
         }
@@ -170,7 +198,7 @@ public class ImprovedBacktracking {
         for (int row = 0; row < sqrt; row++) {
             for (int col = 0; col < sqrt; col++) {
                 if (possibleValues.get(row + boxStartRow).get(col + boxStartCol).remove(new Integer(num))) {
-                    int[] pos = {row + boxStartRow, col + boxStartCol};
+                    int[] pos = {row + boxStartRow, col + boxStartCol, num};
                     list.add(pos);
                 }
             }

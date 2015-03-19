@@ -26,7 +26,7 @@ public class PuzzleGenerator {
             ImprovedBacktracking better = new ImprovedBacktracking();
             SolveSudoku basic = new SolveSudoku();
 
-            int[][] fullField = better.SolveSudoku(field);
+            int[][] fullField = basic.SolveSudoku(field);
 
             if (!sv.verifyField(fullField)) {
                 System.out.println("Incorrect field! Quitting!");

@@ -16,6 +16,9 @@ public class Main {
         ArrayList<int[][]> puzzleCopy = copyList(puzzleList);
 
 
+        System.out.println("Generating puzzles done");
+
+
         /**
          * Test using the basic solver
          */
@@ -38,14 +41,21 @@ public class Main {
 
         }
 
+        long firstAverageNanos = firstTotalNanos/puzzles;
+
+        System.out.println("Basic backtracker:\nAverage time over " + puzzles + " puzzles: " + timeFormatterNanos(firstAverageNanos));
+
+
+
+
         /**
          * Test using the improved solver
          */
         long secondTotalNanos = 0;
         for (int[][] puzzle : puzzleCopy) {
 
-            //ImprovedBacktracking imp = new ImprovedBacktracking();
-            FCBT imp = new FCBT();
+            ImprovedBacktracking imp = new ImprovedBacktracking();
+            //FCBT imp = new FCBT();
 
             long start = System.nanoTime();
             int[][] fixed = imp.SolveSudoku(puzzle);
@@ -61,12 +71,11 @@ public class Main {
 
         }
 
+
         long programStop = System.currentTimeMillis();
 
 
-        long firstAverageNanos = firstTotalNanos/puzzles;
 
-        System.out.println("Basic backtracker:\nAverage time over " + puzzles + " puzzles: " + timeFormatterNanos(firstAverageNanos));
 
         long secondAverageNanos = secondTotalNanos/puzzles;
 
