@@ -5,121 +5,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-        SolutionVerifier sv = new SolutionVerifier();
-        PuzzleGenerator pg = new PuzzleGenerator();
-        SudokuPrinter sp = new SudokuPrinter();
 
-        long programStart = System.currentTimeMillis();
-
-        int puzzles = 10;
-        int size = 16;
-        int hints = 64;
-        ArrayList<int[][]> puzzleList = pg.PuzzleGenerator(size, puzzles, hints);
-        ArrayList<int[][]> puzzleCopy = copyList(puzzleList);
+        ArrayList<String> classList = new ArrayList<String>();
+        //classList.add("BT");
+        //classList.add("BTFC");
+        //classList.add("BTFCCP");
+        classList.add("BTFCCPMRV");
 
 
-        System.out.println("Generating puzzles done");
-
-
-        /**
-         * Test using the basic solver
-         */
-        /*
-        long firstTotalNanos = 0;
-        long hardestNanos = 0; //How long it took to solve the "hardest" puzzle
-        for (int[][] puzzle : puzzleList) {
-
-            BT sol = new BT();
-
-            long start = System.nanoTime();
-            int[][] fixed = sol.SolveSudoku(puzzle);
-            long stop = System.nanoTime();
-
-            if (!sv.verifyField(fixed)) {
-                System.out.println("Incorrect field in basic! Quitting!");
-                sp.Print(fixed);
-                return;
-            } else {
-                if(stop - start > hardestNanos)
-                    hardestNanos = stop - start;
-
-                firstTotalNanos += stop - start;
-            }
-
-        }
-
-        long firstAverageNanos = firstTotalNanos/puzzles;
-
-        System.out.println("Basic backtracker:\nAverage over " + puzzles + " puzzles: " + timeFormatterNanos(firstAverageNanos));
-        System.out.println("Longest: " + timeFormatterNanos(hardestNanos));
-
-
-
-        System.out.println("Runtime: " + timeFormatterMillis(System.currentTimeMillis() - programStart) + "\n");
-
-*/
-
-        /**
-         * Test using the improved solver
-         */
-        long hardestNanos = 0;
-        long secondTotalNanos = 0;
-        for (int[][] puzzle : puzzleCopy) {
-
-            BTFCCPMRV imp = new BTFCCPMRV();
-
-            long start = System.nanoTime();
-            int[][] fixed = imp.SolveSudoku(puzzle);
-            long stop = System.nanoTime();
-
-            if (!sv.verifyField(fixed)) {
-                System.out.println("Incorrect field in improved! Quitting!");
-                sp.Print(fixed);
-                return;
-            } else {
-                if(stop - start > hardestNanos)
-                    hardestNanos = stop - start;
-                secondTotalNanos += stop - start;
-            }
-
+        try {
+            TestObjects tester = new TestObjects(classList, 10, 20, 9); //Classlist, puzzles, hints, size
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
         }
 
 
-        long programStop = System.currentTimeMillis();
-
-
-
-
-        long secondAverageNanos = secondTotalNanos/puzzles;
-
-        System.out.println("Improved backtracker:\nAverage time over " + puzzles + " puzzles: " + timeFormatterNanos(secondAverageNanos));
-        System.out.println("Longest puzzle took: " + timeFormatterNanos(hardestNanos));
-
-
-        long programMillis = programStop - programStart;
-
-        System.out.println("Program ran for: " + timeFormatterMillis(programMillis));
-
-
-
-
-        //
-    }
-
-    private static ArrayList<int[][]> copyList(ArrayList<int[][]> puzzleList) {
-
-        ArrayList<int[][]> copy = new ArrayList<int[][]>();
-        for(int[][] puzzle : puzzleList) {
-            int[][] fieldCopy = new int[puzzle.length][puzzle.length];
-            for (int i = 0; i < puzzle.length; i++) {
-                for (int j = 0; j < puzzle.length; j++) {
-                    fieldCopy[i][j] = puzzle[i][j];
-                }
-            }
-            copy.add(fieldCopy);
-        }
-
-        return copy;
 
     }
 

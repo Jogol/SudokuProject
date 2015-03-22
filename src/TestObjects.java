@@ -1,14 +1,22 @@
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Jonathan on 22/03/2015.
  */
 public class TestObjects {
 
-    public TestObjects(ArrayList<BT> classList, int puzzles, int hints, int size) { //TODO only handles BT, needs to be subclasses or something to work
-
+    public TestObjects(ArrayList<String> classList, int puzzles, int hints, int size) throws ClassNotFoundException, IllegalAccessException, InstantiationException { //TODO only handles BT, needs to be subclasses or something to work
 
         long programStart = System.currentTimeMillis();
+
+        if (classList == null) { //Default list
+            classList = new ArrayList<String>();
+            //classList.add("BT");
+            //classList.add("BTFC");
+            classList.add("BTFCCPMRV");
+            classList.add("BTFCCPMRV");
+        }
 
         SolutionVerifier sv = new SolutionVerifier();
         PuzzleGenerator pg = new PuzzleGenerator();
@@ -16,35 +24,40 @@ public class TestObjects {
 
         ArrayList<int[][]> puzzleList = pg.PuzzleGenerator(size, puzzles, hints);
 
-        for (BT solver : classList) {
+        for (String solverName : classList) {
             ArrayList<int[][]> puzzleCopy = copyList(puzzleList);
 
-            long firstTotalNanos = 0;
-            long hardestNanos = 0; //How long it took to solve the "hardest" puzzle
-            for (int[][] puzzle : puzzleList) {
+            Class theClass = Class.forName(solverName);
+            SuperSolver solver = (SuperSolver)theClass.newInstance();
 
-                BT sol = new BT();
+            long totalNanos = 0;
+            long hardestNanos = 0; //How long it took to solve the "hardest" puzzle
+            for (int[][] puzzle : puzzleCopy) {
+
+                solver = (SuperSolver)theClass.newInstance();
 
                 long start = System.nanoTime();
                 int[][] fixed = solver.SolveSudoku(puzzle);
                 long stop = System.nanoTime();
 
-                if (!sv.verifyField(fixed)) {
-                    System.out.println("Incorrect field in basic! Quitting!");
+                if (fixed == null) {
+                    System.out.println(solver.getName() + " failed.");
+                } else if (!sv.verifyField(fixed)) {
+                    System.out.println("Solution was incorrect! Quitting!");
                     sp.Print(fixed);
                     return;
                 } else {
                     if(stop - start > hardestNanos)
                         hardestNanos = stop - start;
 
-                    firstTotalNanos += stop - start;
+                    totalNanos += stop - start;
                 }
 
             }
 
-            long firstAverageNanos = firstTotalNanos/puzzles;
+            long averageNanos = totalNanos/puzzles;
 
-            System.out.println("Basic backtracker:\nAverage over " + puzzles + " puzzles: " + timeFormatterNanos(firstAverageNanos));
+            System.out.println(solver.getName() + ":\nAverage over " + puzzles + " puzzles: " + timeFormatterNanos(averageNanos));
             System.out.println("Longest: " + timeFormatterNanos(hardestNanos));
 
 
@@ -55,7 +68,7 @@ public class TestObjects {
 
     }
 
-    private static ArrayList<int[][]> copyList(ArrayList<int[][]> puzzleList) {
+    private ArrayList<int[][]> copyList(ArrayList<int[][]> puzzleList) {
 
         ArrayList<int[][]> copy = new ArrayList<int[][]>();
         for(int[][] puzzle : puzzleList) {
@@ -72,19 +85,31 @@ public class TestObjects {
 
     }
 
-    private static String timeFormatterNanos(long inNanos) {
-        long nanos = (inNanos) % 1000000;
+    private String timeFormatterNanos(long inNanos) {
+        /*long nanos = (inNanos) % 1000000;
         long millis = (inNanos / 1000000) % 1000;
         long seconds = (millis / 1000) % 60;
         long minutes = (millis / (1000 * 60));
+        */
 
-        String time = String.format("%02d s, %02d ms, and %d ns", seconds, millis, nanos);
+        long nanos = (inNanos) % 1000000;
+        long millis = TimeUnit.MILLISECONDS.convert(inNanos, TimeUnit.NANOSECONDS);
+        long seconds = TimeUnit.SECONDS.convert(inNanos, TimeUnit.NANOSECONDS);
+        long minutes = TimeUnit.MINUTES.convert(inNanos, TimeUnit.NANOSECONDS);
+
+        String time = "";
+        if(minutes!=0)
+            time += (minutes + " min, ");
+
+        time += (seconds + " s, " + millis + " ms, " + nanos + " ns");
+
+        //String time = String.format("%d min, %d s, %d ms, and %d ns", minutes, seconds, millis, nanos);
         return time;
     }
 
-    private static String timeFormatterMillis(long millis) {
-        long seconds = (millis / 1000) % 60;
-        long minutes = (millis / (1000 * 60));
+    private String timeFormatterMillis(long millis) {
+        long seconds = TimeUnit.SECONDS.convert(millis, TimeUnit.MILLISECONDS);
+        long minutes = TimeUnit.MINUTES.convert(millis, TimeUnit.MILLISECONDS);
 
         String time = String.format("%02d min, %02d s, %02d ms", minutes, seconds, millis);
         return time;

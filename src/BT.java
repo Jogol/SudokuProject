@@ -5,7 +5,7 @@ import java.util.Collections;
  * Created by Jonathan on 09/03/2015.
  * Uses basic backtracking.
  */
-public class BT {
+public class BT implements SuperSolver {
 
     public String name = "BT";
     int[][] grid;
@@ -58,6 +58,10 @@ public class BT {
             }
         }
         return false;
+    }
+
+    public String getName() {
+        return name;
     }
 
     private boolean isSafe(int[][] grid, int row, int col, int num) {

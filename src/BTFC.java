@@ -5,7 +5,7 @@ import java.util.Collections;
  * Created by Jonathan on 17/03/2015.
  * BackTracking Forward Checker
  */
-public class BTFC {
+public class BTFC implements SuperSolver {
 
     public  String name = "BTFC";
     int[][] grid; //The sudoku grid we work on
@@ -86,7 +86,7 @@ public class BTFC {
                 return true;
 
             //Reset possibleValueLists here
-            resetSpecific(updated, num);
+            resetSpecific(updated);
             grid[row][col] = 0;
 
 
@@ -94,10 +94,14 @@ public class BTFC {
         return false;
     }
 
-    private void resetSpecific(ArrayList<int[]> updated, int num) {
+    public String getName() {
+        return name;
+    }
+
+    private void resetSpecific(ArrayList<int[]> updated) {
         for(int[] pos : updated) {
             //if (!possibleValues.get(pos[0]).get(pos[1]).contains(num)) TODO if problems occur, test adding this back, but since we get a list of changed objects, they should not be there
-            possibleValues.get(pos[0]).get(pos[1]).add(num);
+            possibleValues.get(pos[0]).get(pos[1]).add(pos[2]);
         }
     }
 
@@ -122,7 +126,7 @@ public class BTFC {
         ArrayList<int[]> list = new ArrayList<int[]>(size);
         for (int col = 0; col < grid.length; col++) {
             if (possibleValues.get(row).get(col).remove(new Integer(num))) {
-                int[] pos = {row, col};
+                int[] pos = {row, col, num};
                 list.add(pos);
             }
         }
@@ -133,7 +137,7 @@ public class BTFC {
         ArrayList<int[]> list = new ArrayList<int[]>(size);
         for (int row = 0; row < grid.length; row++) {
             if (possibleValues.get(row).get(col).remove(new Integer(num))) {
-                int[] pos = {row, col};
+                int[] pos = {row, col, num};
                 list.add(pos);
             }
         }
@@ -145,7 +149,7 @@ public class BTFC {
         for (int row = 0; row < sqrt; row++) {
             for (int col = 0; col < sqrt; col++) {
                 if (possibleValues.get(row + boxStartRow).get(col + boxStartCol).remove(new Integer(num))) {
-                    int[] pos = {row + boxStartRow, col + boxStartCol};
+                    int[] pos = {row + boxStartRow, col + boxStartCol, num};
                     list.add(pos);
                 }
             }

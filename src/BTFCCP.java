@@ -11,7 +11,7 @@ import java.util.Collections;
  * Considering the time improvements I got from other similar optimizations though,
  * I can't imagine it would do that much, they're only ever 9-25 long.
  */
-public class BTFCCP {
+public class BTFCCP implements SuperSolver {
 
     public String name = "BTFCCP";
     int[][] grid; //The sudoku grid we work on
@@ -115,7 +115,7 @@ public class BTFCCP {
             return false;
         }
 
-        Collections.shuffle(ints);
+        //Collections.shuffle(ints); TODO put back
 
 
         //Ordered for now
@@ -137,6 +137,10 @@ public class BTFCCP {
         resetSpecific(cPChangedList);
         resetCP(cPValueChanges);
         return false;
+    }
+
+    public String getName() {
+        return name;
     }
 
     private void resetCP(ArrayList<int[]> cPValueChanges) {

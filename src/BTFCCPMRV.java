@@ -6,7 +6,7 @@ import java.util.Collections;
  * BackTracking Forward Checking Constraint Propagation Minimum Remaining Value
  * In the backtracking, this goes to the spot with 0 and least possible values.
  */
-public class BTFCCPMRV {
+public class BTFCCPMRV implements SuperSolver {
 
     public String name = "BTFCCPMRV";
     int[][] grid; //The sudoku grid we work on
@@ -111,7 +111,7 @@ public class BTFCCPMRV {
             return false;
         }
 
-        Collections.shuffle(ints);
+        //Collections.shuffle(ints); TODO put back
 
 
         //Ordered for now
@@ -133,6 +133,10 @@ public class BTFCCPMRV {
         resetSpecific(cPChangedList);
         resetCP(cPValueChanges);
         return false;
+    }
+
+    public String getName() {
+        return name;
     }
 
     private void resetCP(ArrayList<int[]> cPValueChanges) {
