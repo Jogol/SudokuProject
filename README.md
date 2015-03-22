@@ -1,5 +1,6 @@
 # SudokuProject
 Comparing sudoku algorithms
+Made by @Jogol and Joel
 
 Currently only algorithms based on backtracking.
 
