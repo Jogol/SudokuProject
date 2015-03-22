@@ -2,16 +2,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Created by Jonathan on 13/03/2015.
- * Based on the backtracking solver, but added forward checking and constraint propagation.
- * Possible improvement: if a cell has value 0 and 0 possibleValues, return false.
- * Possible optimization: instead of possible values being an arrayList (with O(n))
- * for finding Object o (removing ints), it could be an boolean[] of size grid.length
- * Considering the time improvements I got from other similar optimizations though,
- * I can't imagine it would do that much, they're only ever 9-25 long.
+ * Created by Jonathan on 21/03/2015.
+ * BackTracking Forward Checking Constraint Propagation Minimum Remaining Value
+ * In the backtracking, this goes to the spot with 0 and least possible values.
  */
-public class ImprovedBacktracking {
+public class BTFCCPMRV {
 
+    public String name = "BTFCCPMRV";
     int[][] grid; //The sudoku grid we work on
     int globalRow, globalCol;
     int sqrt;
@@ -55,8 +52,11 @@ public class ImprovedBacktracking {
         }
 
 
-        if (!BacktrackSudoku(this.grid))
-            System.out.println("Fail...");
+        if (!BacktrackSudoku(this.grid)) {
+            System.out.println("Fail in " + this.name);
+            return null;
+        }
+
 
         //if (iterations>1000000)
         //    System.out.println(iterations);
@@ -150,7 +150,7 @@ public class ImprovedBacktracking {
     private void resetSpecific(ArrayList<int[]> updated) {
         for(int[] pos : updated) {
             //if (!possibleValues.get(pos[0]).get(pos[1]).contains(num)) TODO if problems occur, test adding this back, but since we get a list of changed objects, they should not be there
-                possibleValues.get(pos[0]).get(pos[1]).add(pos[2]);
+            possibleValues.get(pos[0]).get(pos[1]).add(pos[2]);
         }
     }
 
@@ -208,16 +208,23 @@ public class ImprovedBacktracking {
 
     private boolean FindUnassignedLocation() {
 
+        int leastValues = size + 1; //The least number of values any position has, if we found any, it can't be size + 1 anymore
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < grid.length; col++) {
-                if (grid[row][col] == 0) {
+                if (grid[row][col] == 0 && possibleValues.get(row).get(col).size() < leastValues) {
+
+                    leastValues = possibleValues.get(row).get(col).size();
                     globalRow = row;
                     globalCol = col;
-                    return true;
+
                 }
 
             }
         }
+
+        if(leastValues!=size+1)
+            return true;
+
         return false;
     }
 

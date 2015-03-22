@@ -12,10 +12,11 @@ public class PuzzleGenerator {
 
 
     ArrayList<int[]> randomPosList;
-    int hints = 20;
+    int hints;
 
-    public ArrayList<int[][]> PuzzleGenerator(int size, int number) {
+    public ArrayList<int[][]> PuzzleGenerator(int size, int number, int hints) {
 
+        this.hints = hints;
         ArrayList<int[][]> fieldList = new ArrayList<int[][]>();
         SolutionVerifier sv = new SolutionVerifier();
         randomPosList = makeRandomPosList(size);
@@ -23,8 +24,8 @@ public class PuzzleGenerator {
         long totalNanos = 0;
         for (int i = 0; i < number; i++) {
             int[][] field = createEmpty(size);
-            ImprovedBacktracking better = new ImprovedBacktracking();
-            SolveSudoku basic = new SolveSudoku();
+            BTFCCP better = new BTFCCP();
+            BT basic = new BT();
 
             int[][] fullField = basic.SolveSudoku(field);
 

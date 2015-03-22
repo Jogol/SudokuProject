@@ -5,8 +5,9 @@ import java.util.Collections;
  * Created by Jonathan on 09/03/2015.
  * Uses basic backtracking.
  */
-public class SolveSudoku {
+public class BT {
 
+    public String name = "BT";
     int[][] grid;
     int globalRow, globalCol;
     int sqrt;
@@ -21,8 +22,10 @@ public class SolveSudoku {
             template.add(i+1);
         }
 
-        if(!BacktrackSudoku(this.grid))
-            System.out.println("Fail...");
+        if (!BacktrackSudoku(this.grid)) {
+            System.out.println("Fail in " + this.name);
+            return null;
+        }
 
 
         //System.out.println(iterations);

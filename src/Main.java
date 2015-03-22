@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
 
@@ -10,9 +11,10 @@ public class Main {
 
         long programStart = System.currentTimeMillis();
 
-        int puzzles = 100;
-        int size = 9;
-        ArrayList<int[][]> puzzleList = pg.PuzzleGenerator(size, puzzles);
+        int puzzles = 10;
+        int size = 16;
+        int hints = 64;
+        ArrayList<int[][]> puzzleList = pg.PuzzleGenerator(size, puzzles, hints);
         ArrayList<int[][]> puzzleCopy = copyList(puzzleList);
 
 
@@ -22,10 +24,12 @@ public class Main {
         /**
          * Test using the basic solver
          */
+        /*
         long firstTotalNanos = 0;
+        long hardestNanos = 0; //How long it took to solve the "hardest" puzzle
         for (int[][] puzzle : puzzleList) {
 
-            SolveSudoku sol = new SolveSudoku();
+            BT sol = new BT();
 
             long start = System.nanoTime();
             int[][] fixed = sol.SolveSudoku(puzzle);
@@ -36,6 +40,9 @@ public class Main {
                 sp.Print(fixed);
                 return;
             } else {
+                if(stop - start > hardestNanos)
+                    hardestNanos = stop - start;
+
                 firstTotalNanos += stop - start;
             }
 
@@ -43,19 +50,23 @@ public class Main {
 
         long firstAverageNanos = firstTotalNanos/puzzles;
 
-        System.out.println("Basic backtracker:\nAverage time over " + puzzles + " puzzles: " + timeFormatterNanos(firstAverageNanos));
+        System.out.println("Basic backtracker:\nAverage over " + puzzles + " puzzles: " + timeFormatterNanos(firstAverageNanos));
+        System.out.println("Longest: " + timeFormatterNanos(hardestNanos));
 
 
 
+        System.out.println("Runtime: " + timeFormatterMillis(System.currentTimeMillis() - programStart) + "\n");
+
+*/
 
         /**
          * Test using the improved solver
          */
+        long hardestNanos = 0;
         long secondTotalNanos = 0;
         for (int[][] puzzle : puzzleCopy) {
 
-            ImprovedBacktracking imp = new ImprovedBacktracking();
-            //FCBT imp = new FCBT();
+            BTFCCPMRV imp = new BTFCCPMRV();
 
             long start = System.nanoTime();
             int[][] fixed = imp.SolveSudoku(puzzle);
@@ -66,6 +77,8 @@ public class Main {
                 sp.Print(fixed);
                 return;
             } else {
+                if(stop - start > hardestNanos)
+                    hardestNanos = stop - start;
                 secondTotalNanos += stop - start;
             }
 
@@ -80,6 +93,7 @@ public class Main {
         long secondAverageNanos = secondTotalNanos/puzzles;
 
         System.out.println("Improved backtracker:\nAverage time over " + puzzles + " puzzles: " + timeFormatterNanos(secondAverageNanos));
+        System.out.println("Longest puzzle took: " + timeFormatterNanos(hardestNanos));
 
 
         long programMillis = programStop - programStart;
@@ -109,21 +123,34 @@ public class Main {
 
     }
 
+
     private static String timeFormatterNanos(long inNanos) {
-        long nanos = (inNanos) % 1000000;
+        /*long nanos = (inNanos) % 1000000;
         long millis = (inNanos / 1000000) % 1000;
         long seconds = (millis / 1000) % 60;
         long minutes = (millis / (1000 * 60));
+        */
 
-        String time = String.format("%02d seconds, %02d milliseconds, and %d nanoseconds", seconds, millis, nanos);
+        long nanos = (inNanos) % 1000000;
+        long millis = TimeUnit.MILLISECONDS.convert(inNanos, TimeUnit.NANOSECONDS);
+        long seconds = TimeUnit.SECONDS.convert(inNanos, TimeUnit.NANOSECONDS);
+        long minutes = TimeUnit.MINUTES.convert(inNanos, TimeUnit.NANOSECONDS);
+
+        String time = "";
+        if(minutes!=0)
+            time += (minutes + " min, ");
+
+        time += (seconds + " s, " + millis + " ms, " + nanos + " ns");
+
+        //String time = String.format("%d min, %d s, %d ms, and %d ns", minutes, seconds, millis, nanos);
         return time;
     }
 
     private static String timeFormatterMillis(long millis) {
-        long seconds = (millis / 1000) % 60;
-        long minutes = (millis / (1000 * 60));
+        long seconds = TimeUnit.SECONDS.convert(millis, TimeUnit.MILLISECONDS);
+        long minutes = TimeUnit.MINUTES.convert(millis, TimeUnit.MILLISECONDS);
 
-        String time = String.format("%02d minutes, %02d seconds, %02d milliseconds", minutes, seconds, millis);
+        String time = String.format("%02d min, %02d s, %02d ms", minutes, seconds, millis);
         return time;
     }
 
