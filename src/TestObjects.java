@@ -14,12 +14,12 @@ public class TestObjects {
             classList = new ArrayList<String>();
             //classList.add("BT");
             //classList.add("BTFC");
-            classList.add("BTFCCPMRV");
+            classList.add("BTFCCP");
             classList.add("BTFCCPMRV");
         }
 
         SolutionVerifier sv = new SolutionVerifier();
-        PuzzleGenerator pg = new PuzzleGenerator();
+        PuzzleGeneratorMS pg = new PuzzleGeneratorMS();
         SudokuPrinter sp = new SudokuPrinter();
 
         ArrayList<int[][]> puzzleList = pg.PuzzleGenerator(size, puzzles, hints);

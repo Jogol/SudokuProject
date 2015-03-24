@@ -6,9 +6,10 @@ import java.util.Collections;
 /**
  * Created by Jonathan on 16/03/2015.
  * Creates an empty field, solves it randomly, and then removes numbers
+ * Can have Multiple Solutions (1 minimum)
  */
 
-public class PuzzleGenerator {
+public class PuzzleGeneratorMS {
 
 
     ArrayList<int[]> randomPosList;

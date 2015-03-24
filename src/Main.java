@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Good values for hints are:
+ * 9: 20
+ * 16: 64
+ */
 public class Main {
 
     public static void main(String[] args) {
@@ -13,8 +18,9 @@ public class Main {
         classList.add("BTFCCPMRV");
 
 
+
         try {
-            TestObjects tester = new TestObjects(classList, 10, 20, 9); //Classlist, puzzles, hints, size
+            TestObjects tester = new TestObjects(classList, 1, 64, 16); //Classlist, puzzles, hints, size
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
