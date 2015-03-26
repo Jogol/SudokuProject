@@ -15,17 +15,16 @@ public class PuzzleGeneratorMS {
     ArrayList<int[]> randomPosList;
     int hints;
 
-    public ArrayList<int[][]> PuzzleGenerator(int size, int number, int hints) {
+    public ArrayList<int[][]> puzzleGenerator(int size, int number, int hints) {
 
         this.hints = hints;
         ArrayList<int[][]> fieldList = new ArrayList<int[][]>();
         SolutionVerifier sv = new SolutionVerifier();
         randomPosList = makeRandomPosList(size);
 
-        long totalNanos = 0;
         for (int i = 0; i < number; i++) {
             int[][] field = createEmpty(size);
-            BTFCCP better = new BTFCCP();
+            BTFCCPMRV better = new BTFCCPMRV();
             BT basic = new BT();
 
             int[][] fullField = basic.SolveSudoku(field);

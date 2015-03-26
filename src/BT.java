@@ -42,10 +42,11 @@ public class BT implements SuperSolver {
         row = globalRow;
         col = globalCol;
 
+
+
         ArrayList<Integer> ints = new ArrayList<Integer>(template);
         Collections.shuffle(ints);
 
-        //Ordered for now
         for (Integer num : ints) {
             iterations++;
             if (isSafe(grid, row, col, num)) {
@@ -53,6 +54,10 @@ public class BT implements SuperSolver {
 
                 if (BacktrackSudoku(grid))
                     return true;
+
+                if (row < 10) {
+                    int test = 0;
+                }
 
                 grid[row][col] = 0;
             }
@@ -64,6 +69,15 @@ public class BT implements SuperSolver {
         return name;
     }
 
+    /**
+     * Checks if the chosen number is safe to put
+     * in the chosen position (no conflicts)
+     * @param grid
+     * @param row
+     * @param col
+     * @param num
+     * @return
+     */
     private boolean isSafe(int[][] grid, int row, int col, int num) {
 
         return (!UsedInRow(row, num) && !UsedInCol(col, num) && !UsedInBox(row - row%sqrt, col - col%sqrt, num));
@@ -101,6 +115,11 @@ public class BT implements SuperSolver {
         return false;
     }
 
+    /**
+     * Finds the next cell with a zero, and sets the global
+     * position pointers
+     * @return
+     */
     private boolean FindUnassignedLocation() {
 
         for (int row = 0; row < grid.length; row++) {

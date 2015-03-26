@@ -13,7 +13,7 @@ public class BTFCCPMRV implements SuperSolver {
     int globalRow, globalCol;
     int sqrt;
     int size;
-    int iterations = 0;
+    //int iterations = 0;
     ArrayList<Integer> template = new ArrayList<Integer>();
 
     //Every cell in the matrix(sudoku field) has an arraylist with its possible values.
@@ -58,13 +58,18 @@ public class BTFCCPMRV implements SuperSolver {
         }
 
 
-        //if (iterations>1000000)
-        //    System.out.println(iterations);
+
+
 
         return grid;
     }
 
     boolean BacktrackSudoku(int[][] g) {
+
+       /* if (iterations>10000000) {
+            System.out.println(iterations);
+            iterations = 0;
+        }*/
 
         grid = g;
         int row, col;
@@ -76,7 +81,7 @@ public class BTFCCPMRV implements SuperSolver {
         whileLoop: while(true) {
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
-                    iterations++;
+                    //iterations++;
                     if(possibleValues.get(i).get(j).isEmpty() && grid[i][j] == 0) {
                         resetSpecific(cPChangedList);
                         resetCP(cPValueChanges);
@@ -111,13 +116,13 @@ public class BTFCCPMRV implements SuperSolver {
             return false;
         }
 
-        //Collections.shuffle(ints); TODO put back
+        //Collections.shuffle(ints);// TODO put back
 
 
         //Ordered for now
         for (Integer num : ints) {
 
-            iterations++;
+            //iterations++;
             grid[row][col] = num;
             ArrayList<int[]> updated = upDateAll(row, col, num);
 

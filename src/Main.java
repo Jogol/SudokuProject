@@ -17,10 +17,64 @@ public class Main {
         //classList.add("BTFCCP");
         classList.add("BTFCCPMRV");
 
+        PuzzleGeneratorSS pg = new PuzzleGeneratorSS();
+        SudokuPrinter sp = new SudokuPrinter();
+        MultSolFinder msf;
+        int puzzles = 100000;
+        int size = 9;
+        int hints = 20;
+        int totalHints = 0;
+        int leastHints = size*size;
+        int lowHints = 0; //Number of hints below threshold
+        int threshold = 21;
+
+      /*  int iter = 0;
 
 
+
+        ArrayList<int[][]> puzzleList = pg.puzzleGenerator(size, puzzles); //size, puzzles
+
+        System.out.println("Puzzles generated");
+
+        for (int[][] field : puzzleList) {
+            iter++;
+
+            if(iter%10000==0)
+                System.out.println(iter + "/" + puzzles);
+
+            msf = new MultSolFinder();
+
+            int puzzleHints = 0;
+
+            if(msf.hasMultSol(field)) {
+                System.out.println("Multiple solutions, error!!!");
+            }
+
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if(field[i][j] != 0)
+                        puzzleHints++;
+                }
+            }
+            //sp.print(field);
+            if(leastHints>puzzleHints)
+                leastHints = puzzleHints;
+
+            if(puzzleHints<threshold)
+                lowHints++;
+
+            totalHints += puzzleHints;
+
+
+
+        }
+
+        double hintAverage = totalHints/puzzles;
+        System.out.println("hint average = " + hintAverage);
+        System.out.println("least hints: " + leastHints);
+*/
         try {
-            TestObjects tester = new TestObjects(classList, 1, 64, 16); //Classlist, puzzles, hints, size
+            TestObjects tester = new TestObjects(classList, puzzles, hints, size); //Classlist, puzzles, hints, size
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -67,6 +121,26 @@ public class Main {
     private static int[][] createSimpleField() {
         int[][] simpleField = { {1,4,7,2,5,8,3,6,9} , {2,5,8,3,6,9,4,7,1} , {3,6,9,4,7,1,5,8,2}
                 , {4,7,1,5,8,2,6,9,3} , {5,8,2,6,9,3,7,1,4} , {6,9,3,7,1,4,8,2,5} , {7,1,4,8,2,5,9,3,6}
+                , {8,2,5,9,3,6,1,4,7} , {9,3,6,1,4,7,2,5,8}};
+        return simpleField;
+    }
+
+    private static int[][] createTwoSolutions() {
+        int[][] simpleField = { {9,0,6,0,7,0,4,0,3} ,
+                                {0,0,0,4,0,0,2,0,0} ,
+                                {0,7,0,0,2,3,0,1,0} ,
+                                {5,0,0,0,0,0,1,0,0} ,
+                                {0,4,0,2,0,8,0,6,0} ,
+                                {0,0,3,0,0,0,0,0,5} ,
+                                {0,3,0,7,0,0,0,5,0} ,
+                                {0,0,7,0,0,5,0,0,0} ,
+                                {4,0,5,0,1,0,7,0,8}};
+        return simpleField;
+    }
+
+    private static int[][] createOneSolution() {
+        int[][] simpleField = { {1,4,7,2,5,8,3,6,9} , {2,5,8,3,6,9,4,7,1} , {3,6,9,4,7,1,5,8,2}
+                , {4,7,1,5,8,2,6,9,3} , {5,8,2,6,0,3,7,1,4} , {6,9,3,7,1,4,8,2,5} , {7,1,4,8,2,5,9,3,6}
                 , {8,2,5,9,3,6,1,4,7} , {9,3,6,1,4,7,2,5,8}};
         return simpleField;
     }

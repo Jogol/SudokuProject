@@ -2,12 +2,14 @@ import java.util.ArrayList;
 
 /**
  * Created by Jonathan on 23/03/2015.
+ * A new MultSolFinder object needs to be instantiated every time it is used.
  * Used to check if a field has multiple solutions.
  * Stops once a second solution has been found.
  * Returns true if there is a second solution.
+ *
  */
 public class MultSolFinder {
-    public String name = "BTFCCPMRV";
+    public String name = "MultSolFinder";
     int[][] grid; //The sudoku grid we work on
     int globalRow, globalCol;
     int sqrt;
@@ -20,7 +22,7 @@ public class MultSolFinder {
     ArrayList<ArrayList<ArrayList<Integer>>> possibleValues = new ArrayList<ArrayList<ArrayList<Integer>>>();
 
 
-    public boolean SolveSudoku(int[][] f) {
+    public boolean hasMultSol(int[][] f) {
         this.grid = f;
         size = grid.length;
         sqrt = (int) Math.sqrt(size);
@@ -52,17 +54,23 @@ public class MultSolFinder {
         }
 
 
-        if (!BacktrackSudoku(this.grid)) {
-            System.out.println("Fail in " + this.name);
-            System.out.println(solutions);
+        BacktrackSudoku(this.grid);
+
+        if(solutions == 1) {
             return false;
+        } else if (solutions > 1) {
+            return true;
+        } else if (solutions == 0) {
+            System.out.println("Fail in " + this.name);
         }
+
+
 
 
         //if (iterations>1000000)
         //    System.out.println(iterations);
 
-        return true;
+        return false;
     }
 
     boolean BacktrackSudoku(int[][] g) {
@@ -97,8 +105,16 @@ public class MultSolFinder {
 
 
         //Below is the backtracking part
-        if (!FindUnassignedLocation()) {
+
+        boolean isFull = !FindUnassignedLocation();
+        if (isFull) {
             solutions++;
+            if (solutions>1) {
+                return true;
+            }
+
+            resetSpecific(cPChangedList);
+            resetCP(cPValueChanges);
             return false;
         }
 
@@ -110,7 +126,7 @@ public class MultSolFinder {
 
 
         if (ints.isEmpty()) {
-            System.out.println("Empty ints");
+            System.out.println("Empty ints"); //should never happen
             return false;
         }
 
@@ -128,9 +144,6 @@ public class MultSolFinder {
                 return true;
             }
 
-            if(solutions > 1) {
-                return true;
-            }
 
             //Reset possibleValueLists here
             resetSpecific(updated);

@@ -3,7 +3,7 @@
  */
 public class SudokuPrinter {
 
-    public void Print(int[][] grid) {
+    public void print(int[][] grid) {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid.length; j++) {
                 if (grid[i][j] > 9) {

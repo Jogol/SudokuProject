@@ -8,28 +8,31 @@ import java.util.Collections;
  * Creates an empty field, solves it randomly, and then removes numbers
  * Can only have one Single Solution (1 exactly)
  * Doesn't take hints as a parameter, as it will use as many hints as it needs.
+ * Is pretty slow.
  */
 
 public class PuzzleGeneratorSS {
 
 
     ArrayList<int[]> randomPosList;
+    int[][] fullField;
 
 
-    public ArrayList<int[][]> PuzzleGenerator(int size, int number) {
+    public ArrayList<int[][]> puzzleGenerator(int size, int number) {
 
         ArrayList<int[][]> fieldList = new ArrayList<int[][]>();
         SolutionVerifier sv = new SolutionVerifier();
 
 
-        long totalNanos = 0;
         for (int i = 0; i < number; i++) {
+            if (number > 1000 && i%100==0)
+                System.out.println(i + "/" + number);
             randomPosList = makeRandomPosList(size);
             int[][] field = createEmpty(size);
             BTFCCP better = new BTFCCP();
             BT basic = new BT();
 
-            int[][] fullField = basic.SolveSudoku(field);
+            fullField = basic.SolveSudoku(field);
 
             if (!sv.verifyField(fullField)) {
                 System.out.println("Incorrect field! Quitting!");
@@ -37,8 +40,15 @@ public class PuzzleGeneratorSS {
             } else {
                 boolean notDone = true;
                 for (int[] pos : randomPosList) {
-
+                    int value = fullField[pos[0]][pos[1]];
+                    fullField[pos[0]][pos[1]] = 0;
+                    MultSolFinder msFinder = new MultSolFinder();
+                    if(msFinder.hasMultSol(fullField)) {
+                        fullField[pos[0]][pos[1]] = value;
+                    }
                 }
+
+                fieldList.add(fullField);
             }
 
         }

@@ -14,7 +14,7 @@ public class TestObjects {
             classList = new ArrayList<String>();
             //classList.add("BT");
             //classList.add("BTFC");
-            classList.add("BTFCCP");
+            //classList.add("BTFCCP");
             classList.add("BTFCCPMRV");
         }
 
@@ -22,7 +22,9 @@ public class TestObjects {
         PuzzleGeneratorMS pg = new PuzzleGeneratorMS();
         SudokuPrinter sp = new SudokuPrinter();
 
-        ArrayList<int[][]> puzzleList = pg.PuzzleGenerator(size, puzzles, hints);
+        ArrayList<int[][]> puzzleList = pg.puzzleGenerator(size, puzzles, hints);
+
+        System.out.println("Done generating");
 
         for (String solverName : classList) {
             ArrayList<int[][]> puzzleCopy = copyList(puzzleList);
@@ -44,7 +46,7 @@ public class TestObjects {
                     System.out.println(solver.getName() + " failed.");
                 } else if (!sv.verifyField(fixed)) {
                     System.out.println("Solution was incorrect! Quitting!");
-                    sp.Print(fixed);
+                    sp.print(fixed);
                     return;
                 } else {
                     if(stop - start > hardestNanos)
