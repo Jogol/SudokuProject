@@ -12,17 +12,17 @@ public class Main {
 
 
         ArrayList<String> classList = new ArrayList<String>();
-        //classList.add("BT");
+        classList.add("BT");
         //classList.add("BTFC");
         //classList.add("BTFCCP");
-        classList.add("BTFCCPMRV");
+        //classList.add("BTFCCPMRV");
 
         PuzzleGeneratorSS pg = new PuzzleGeneratorSS();
         SudokuPrinter sp = new SudokuPrinter();
         MultSolFinder msf;
-        int puzzles = 100000;
-        int size = 9;
-        int hints = 20;
+        int puzzles = 1;
+        int size = 16;
+        int hints = 64;
         int totalHints = 0;
         int leastHints = size*size;
         int lowHints = 0; //Number of hints below threshold
@@ -82,6 +82,8 @@ public class Main {
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
+
+
 
 
 
@@ -150,6 +152,27 @@ public class Main {
                 , {4,0,1,0,8,2,6,9,0} , {0,8,2,6,9,0,7,1,4} , {6,9,3,7,1,0,8,2,5} , {7,0,4,8,2,5,9,3,6}
                 , {8,2,5,9,3,0,0,0,7} , {9,3,0,1,4,0,2,0,8}};
         return simpleField;
+    }
+
+    private static int[][] createHard16x16() {
+        int[][] field = {{3,13,0,0,0,0,0,9,0,0,0,1,0,2,0,0} ,
+                {0,0,10,0,0,0,0,0,0,0,0,0,0,11,0,0} ,
+                {0,0,0,11,10,0,0,2,12,0,0,0,0,0,0,0} ,
+                {6,0,0,0,0,0,0,16,0,0,0,0,0,0,0,0} ,
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,4,15,0} ,
+                {0,7,0,0,0,0,0,0,11,0,13,0,8,0,3,1} ,
+                {0,0,9,0,0,13,0,0,0,0,0,8,0,0,0,0} ,
+                {0,8,11,0,2,0,0,0,0,0,0,15,0,0,0,0} ,
+                {1,0,4,13,9,0,5,0,0,0,0,0,0,0,0,0} ,
+                {0,3,0,7,0,0,6,10,0,0,0,0,0,0,0,0} ,
+                {8,0,0,0,0,11,1,0,0,0,0,0,5,0,0,15} ,
+                {11,0,0,2,0,16,15,0,9,0,0,10,0,0,0,0} ,
+                {0,0,0,16,0,0,2,1,0,8,0,0,0,5,0,4} ,
+                {0,0,0,0,0,0,0,13,0,5,0,9,16,0,7,0} ,
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0} ,
+                {0,6,7,0,0,0,0,0,0,14,0,0,11,0,0,0 }};
+
+        return field;
     }
 
 

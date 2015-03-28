@@ -64,7 +64,7 @@ public class BTFCCPMRV implements SuperSolver {
         return grid;
     }
 
-    boolean BacktrackSudoku(int[][] g) {
+    private boolean BacktrackSudoku(int[][] g) {
 
        /* if (iterations>10000000) {
             System.out.println(iterations);

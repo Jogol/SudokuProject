@@ -18,4 +18,6 @@ public class SudokuPrinter {
         System.out.println("\n");
     }
 
+    //public void printToMatrix()
+
 }
