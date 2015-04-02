@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-
+/*
         ArrayList<String> classList = new ArrayList<String>();
         classList.add("BT");
         //classList.add("BTFC");
@@ -28,7 +28,7 @@ public class Main {
         int lowHints = 0; //Number of hints below threshold
         int threshold = 21;
 
-      /*  int iter = 0;
+        int iter = 0;
 
 
 
@@ -72,7 +72,7 @@ public class Main {
         double hintAverage = totalHints/puzzles;
         System.out.println("hint average = " + hintAverage);
         System.out.println("least hints: " + leastHints);
-*/
+
         try {
             TestObjects tester = new TestObjects(classList, puzzles, hints, size); //Classlist, puzzles, hints, size
         } catch (ClassNotFoundException e) {
@@ -82,9 +82,15 @@ public class Main {
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
+        */
 
+        SudokuReader sr = new SudokuReader();
+        SudokuPrinter sp = new SudokuPrinter();
+        ArrayList<int[][]> list = sr.readSudoku(2, "D:\\Library\\Desktop\\sudoku.txt");
 
-
+        for (int[][] field : list) {
+            sp.print(field);
+        }
 
 
     }
