@@ -4,5 +4,10 @@
 	<classpathentry kind="src" path="lib"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="lib/lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="lib/lib/commons-cli.jar"/>
+	<classpathentry kind="lib" path="lib/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="lib/lib/jchart2d-3.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/lib/mockito-all-1.9.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
