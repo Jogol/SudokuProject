@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -9,6 +10,9 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
     public static void main(String[] args) {
+
+        //ISolver solver = SolverFactory.newDefault();
+
 
 /*
         ArrayList<String> classList = new ArrayList<String>();
@@ -86,7 +90,13 @@ public class Main {
 
         SudokuReader sr = new SudokuReader();
         SudokuPrinter sp = new SudokuPrinter();
+        SudokuFileWriter sfw = new SudokuFileWriter();
         ArrayList<int[][]> list = sr.readSudoku(2, "D:\\Library\\Desktop\\sudoku.txt");
+        try {
+            sfw.write(list, "D:\\Library\\Desktop\\sudoku2.txt", 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         for (int[][] field : list) {
             sp.print(field);

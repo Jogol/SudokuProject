@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="java1">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.core/src/main/java" />
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.core/src/test/java" />
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.csp.xmlparser/src/main/java" />
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.csp/src/main/java" />
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.csp/src/test/java" />
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.helper/src/main/java" />
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.helper/src/test/java" />
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.maxsat/src/main/java" />
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.maxsat/src/test/java" />
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.multicore/src/main/java" />
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.pb/src/main/java" />
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.pb/src/test/java" />
+      <root url="file://D:/Users/Jonathan/IdeaProjects/SAT/org.sat4j.sat/src/main/java" />
+    </SOURCES>
+  </library>
+</component>
