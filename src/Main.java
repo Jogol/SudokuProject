@@ -1,5 +1,9 @@
 import java.io.IOException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -14,19 +18,21 @@ public class Main {
         //ISolver solver = SolverFactory.newDefault();
 
 
-/*
+
         ArrayList<String> classList = new ArrayList<String>();
         classList.add("BT");
-        //classList.add("BTFC");
-        //classList.add("BTFCCP");
-        //classList.add("BTFCCPMRV");
+        classList.add("BTFC");
+        classList.add("BTFCCP");
+        classList.add("BTFCCPMRV");
+
+        /*
 
         PuzzleGeneratorSS pg = new PuzzleGeneratorSS();
         SudokuPrinter sp = new SudokuPrinter();
         MultSolFinder msf;
-        int puzzles = 1;
-        int size = 16;
-        int hints = 64;
+        int puzzles = 10;
+        int size = 9;
+        int hints = 20;
         int totalHints = 0;
         int leastHints = size*size;
         int lowHints = 0; //Number of hints below threshold
@@ -77,18 +83,22 @@ public class Main {
         System.out.println("hint average = " + hintAverage);
         System.out.println("least hints: " + leastHints);
 
+*/
         try {
-            TestObjects tester = new TestObjects(classList, puzzles, hints, size); //Classlist, puzzles, hints, size
+            //TestObjects tester = new TestObjects(classList, puzzles, hints, size); //Classlist, puzzles, hints, size
+            WriteRuntimes test = new WriteRuntimes(classList, 100000, 20, 9, "D:\\Library\\Desktop\\DataOutput");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        */
 
-        SudokuReader sr = new SudokuReader();
+
+        /*SudokuReader sr = new SudokuReader();
         SudokuPrinter sp = new SudokuPrinter();
         SudokuFileWriter sfw = new SudokuFileWriter();
         ArrayList<int[][]> list = sr.readSudoku(2, "D:\\Library\\Desktop\\sudoku.txt");
@@ -101,6 +111,10 @@ public class Main {
         for (int[][] field : list) {
             sp.print(field);
         }
+        Format formatter = new SimpleDateFormat("dd/MM-yy_HHmmss");
+        Date date = Calendar.getInstance().getTime();
+        String sDate = formatter.format(date);
+        System.out.println(sDate);*/
 
 
     }

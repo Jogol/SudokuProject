@@ -17,7 +17,6 @@ public class SudokuFileWriter {
 
         File fout = new File(path);
         FileOutputStream fos = new FileOutputStream(fout);
-
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 
         for (int[][] field : puzzleList) {
