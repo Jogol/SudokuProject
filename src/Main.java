@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+
 /**
  * Good values for hints are:
  * 9: 20
@@ -10,83 +11,6 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
     public static void main(String[] args) {
-
-        //ISolver solver = SolverFactory.newDefault();
-
-
-/*
-        ArrayList<String> classList = new ArrayList<String>();
-        classList.add("BT");
-        //classList.add("BTFC");
-        //classList.add("BTFCCP");
-        //classList.add("BTFCCPMRV");
-
-        PuzzleGeneratorSS pg = new PuzzleGeneratorSS();
-        SudokuPrinter sp = new SudokuPrinter();
-        MultSolFinder msf;
-        int puzzles = 1;
-        int size = 16;
-        int hints = 64;
-        int totalHints = 0;
-        int leastHints = size*size;
-        int lowHints = 0; //Number of hints below threshold
-        int threshold = 21;
-
-        int iter = 0;
-
-
-
-        ArrayList<int[][]> puzzleList = pg.puzzleGenerator(size, puzzles); //size, puzzles
-
-        System.out.println("Puzzles generated");
-
-        for (int[][] field : puzzleList) {
-            iter++;
-
-            if(iter%10000==0)
-                System.out.println(iter + "/" + puzzles);
-
-            msf = new MultSolFinder();
-
-            int puzzleHints = 0;
-
-            if(msf.hasMultSol(field)) {
-                System.out.println("Multiple solutions, error!!!");
-            }
-
-            for (int i = 0; i < size; i++) {
-                for (int j = 0; j < size; j++) {
-                    if(field[i][j] != 0)
-                        puzzleHints++;
-                }
-            }
-            //sp.print(field);
-            if(leastHints>puzzleHints)
-                leastHints = puzzleHints;
-
-            if(puzzleHints<threshold)
-                lowHints++;
-
-            totalHints += puzzleHints;
-
-
-
-        }
-
-        double hintAverage = totalHints/puzzles;
-        System.out.println("hint average = " + hintAverage);
-        System.out.println("least hints: " + leastHints);
-
-        try {
-            TestObjects tester = new TestObjects(classList, puzzles, hints, size); //Classlist, puzzles, hints, size
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        }
-        */
 
         SudokuReader sr = new SudokuReader();
         SudokuPrinter sp = new SudokuPrinter();

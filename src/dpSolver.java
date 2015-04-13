@@ -21,7 +21,6 @@
  * @author Dr. Baliga, Paul Varoutsos, Tom Devito
  *
  */
-package satsolver;
 
 import java.io.FileNotFoundException;
 

@@ -21,7 +21,6 @@
  * @author Tom De Vito, Paul Varoutsos
  *
  */
-package satsolver;
 
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
