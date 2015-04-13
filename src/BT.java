@@ -22,8 +22,6 @@ public class BT implements SuperSolver {
             template.add(i+1);
         }
 
-        SudokuPrinter sp = new SudokuPrinter();
-        sp.print(this.grid);
 
         if (!BacktrackSudoku(this.grid)) {
             System.out.println("Fail in " + this.name);

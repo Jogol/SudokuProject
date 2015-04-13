@@ -2,13 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="737a9e3e-836d-427e-90fa-0b7b73c5aa6f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SudokuFileWriter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/commons_cli.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/java.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/java1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/WriteRuntimes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/A4Paper.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/A4Paper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BT.java" afterPath="$PROJECT_DIR$/src/BT.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/ButtonHandler.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/ButtonHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/ButtonHandlerFactory.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/ButtonHandlerFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/CellGrid.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/CellGrid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/CellStatus.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/CellStatus.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/CommandHandler.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/CommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/Coordinate.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/Coordinate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/CoordinateSet.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/CoordinateSet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/EditCommand.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/EditCommand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/EditCommandHandler.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/EditCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/EditMenu.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/EditMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/FileCommand.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/FileCommand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/FileCommandHandler.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/FileCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/FileMenu.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/FileMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/GUIInput.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/GUIInput.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/GeneralMenu.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/GeneralMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/GraphicalOneCell.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/GraphicalOneCell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/HelpCommand.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/HelpCommand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/HelpCommandHandler.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/HelpCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/HelpMenu.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/HelpMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/IndexSet.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/IndexSet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/InternalReader.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/InternalReader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/LineScanner.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/LineScanner.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SudokuProject.iml" afterPath="$PROJECT_DIR$/SudokuProject.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/MainProgramWindow.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/MainProgramWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MultSolFinder.java" afterPath="$PROJECT_DIR$/src/MultSolFinder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PuzzleGeneratorSS.java" afterPath="$PROJECT_DIR$/src/PuzzleGeneratorSS.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/RandomPermutation.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/RandomPermutation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SDApplet.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SDApplet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SDApplication.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SDApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SDSize.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SDSize.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SDWebStart.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SDWebStart.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/ShowVersions.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/ShowVersions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SortedCoordinateSet.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SortedCoordinateSet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SuDoku.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SuDoku.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SuDokuResources.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/SuDokuResources.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SudokuFileWriter.java" afterPath="$PROJECT_DIR$/src/SudokuFileWriter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/TextualOneCell.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/TextualOneCell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/WordScanner.java" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/WordScanner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ant.xml" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.scala/src/test/scala/samples/junit.scala" afterPath="$PROJECT_DIR$/lib/org.sat4j.scala/src/test/scala/samples/junit.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.scala/pom.xml" afterPath="$PROJECT_DIR$/lib/org.sat4j.scala/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/sudoku.properties" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/sudoku.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/sudoku_fr.properties" afterPath="$PROJECT_DIR$/lib/org.sat4j.sudoku/src/main/java/org/sat4j/apps/sudoku/sudoku_fr.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SudokuProject.iws" />
@@ -38,11 +77,51 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56398106" vertical-offset="1258" max-vertical-offset="3604">
-              <caret line="95" column="68" selection-start-line="95" selection-start-column="68" selection-end-line="95" selection-end-column="68" />
+            <state vertical-scroll-proportion="0.5281553" vertical-offset="1224" max-vertical-offset="3842">
+              <caret line="88" column="65" selection-start-line="88" selection-start-column="65" selection-end-line="88" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PuzzleGeneratorSS.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PuzzleGeneratorSS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="463" max-vertical-offset="2023">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MultSolFinder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MultSolFinder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="4573">
+              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WriteRuntimes.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WriteRuntimes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="2397">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SolutionVerifier.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SolutionVerifier.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="1462">
+              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -50,75 +129,11 @@
       <file leaf-file-name="SudokuFileWriter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SudokuFileWriter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="816">
-              <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="799">
+              <caret line="19" column="76" selection-start-line="19" selection-start-column="76" selection-end-line="19" selection-end-column="76" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ant.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/ant.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="187">
-              <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SudokuReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SudokuReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="3230">
-              <caret line="25" column="107" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="107" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestObjects.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TestObjects.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2108">
-              <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BTFCCPMRV.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BTFCCPMRV.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="4131">
-              <caret line="18" column="87" selection-start-line="18" selection-start-column="87" selection-end-line="18" selection-end-column="87" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BT.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BT.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="2465">
-              <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SudokuPrinter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SudokuPrinter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-              <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -150,17 +165,18 @@
         <option value="$PROJECT_DIR$/src/BTFC.java" />
         <option value="$PROJECT_DIR$/src/SuperSolver.java" />
         <option value="$PROJECT_DIR$/src/HasMultSol.java" />
-        <option value="$PROJECT_DIR$/src/MultSolFinder.java" />
-        <option value="$PROJECT_DIR$/src/PuzzleGeneratorSS.java" />
         <option value="$PROJECT_DIR$/src/TestObjects.java" />
         <option value="$PROJECT_DIR$/src/PuzzleGeneratorMS.java" />
-        <option value="$PROJECT_DIR$/src/BT.java" />
         <option value="$PROJECT_DIR$/src/BTFCCPMRV.java" />
         <option value="$PROJECT_DIR$/src/SudokuPrinter.java" />
         <option value="$PROJECT_DIR$/src/BTFCCPMRVNP.java" />
         <option value="$PROJECT_DIR$/.idea/ant.xml" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/SudokuFileWriter.java" />
+        <option value="$PROJECT_DIR$/src/BT.java" />
+        <option value="$PROJECT_DIR$/src/WriteRuntimes.java" />
+        <option value="$PROJECT_DIR$/src/MultSolFinder.java" />
+        <option value="$PROJECT_DIR$/src/PuzzleGeneratorSS.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -198,7 +214,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -237,7 +253,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -262,6 +278,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
@@ -554,15 +575,17 @@
       <workItem from="1428420854434" duration="3736000" />
       <workItem from="1428426083274" duration="611000" />
       <workItem from="1428488252782" duration="5304000" />
+      <workItem from="1428579786264" duration="15133000" />
+      <workItem from="1428658190037" duration="13809000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186689000" />
+    <option name="totallyTimeSpent" value="215631000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -575,17 +598,17 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30200633" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42661035" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12291667" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20677084" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27138332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48996833" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="5.2083336E-4" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -619,35 +642,15 @@
           <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="76" />
+      <option name="time" value="79" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
-    <buildFile url="file://D:/Users/Jonathan/IdeaProjects/sat4j/build.xml">
-      <expanded value="true" />
-    </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/SudokuPrinter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="459">
-          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1972">
-          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SolutionVerifier.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="1326">
@@ -683,9 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1972">
           <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -745,9 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1734">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -879,13 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SolutionVerifier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="33" max-vertical-offset="1462">
-          <caret line="68" column="21" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Field.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="2499">
@@ -917,52 +907,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MultSolFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="579" max-vertical-offset="4403">
-          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PuzzleGeneratorSS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2023">
-          <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PuzzleGeneratorMS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1768">
-          <caret line="29" column="37" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestObjects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2108">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BTFCCPMRV.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="4131">
           <caret line="18" column="87" selection-start-line="18" selection-start-column="87" selection-end-line="18" selection-end-column="87" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="2465">
-          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -974,20 +922,19 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="583">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/ant.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="187">
           <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1002,7 +949,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3230">
           <caret line="25" column="107" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="107" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1010,24 +956,85 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
           <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestObjects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2108">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PuzzleGeneratorMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="297" max-vertical-offset="1751">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4170616" vertical-offset="127" max-vertical-offset="2431">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SudokuFileWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="816">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
+          <caret line="19" column="76" selection-start-line="19" selection-start-column="76" selection-end-line="19" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/SolutionVerifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="1462">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MultSolFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="4573">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WriteRuntimes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="2397">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PuzzleGeneratorSS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="463" max-vertical-offset="2023">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Formula.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16504854" vertical-offset="0" max-vertical-offset="8466">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56398106" vertical-offset="1258" max-vertical-offset="3604">
-          <caret line="95" column="68" selection-start-line="95" selection-start-column="68" selection-end-line="95" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.5281553" vertical-offset="1224" max-vertical-offset="3842">
+          <caret line="88" column="65" selection-start-line="88" selection-start-column="65" selection-end-line="88" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

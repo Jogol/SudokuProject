@@ -1,5 +1,9 @@
 import java.io.IOException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 
@@ -12,7 +16,88 @@ public class Main {
 
     public static void main(String[] args) {
 
-        SudokuReader sr = new SudokuReader();
+
+
+        ArrayList<String> classList = new ArrayList<String>();
+        classList.add("BT");
+        classList.add("BTFC");
+        classList.add("BTFCCP");
+        classList.add("BTFCCPMRV");
+
+        /*
+
+        PuzzleGeneratorSS pg = new PuzzleGeneratorSS();
+        SudokuPrinter sp = new SudokuPrinter();
+        MultSolFinder msf;
+        int puzzles = 10;
+        int size = 9;
+        int hints = 20;
+        int totalHints = 0;
+        int leastHints = size*size;
+        int lowHints = 0; //Number of hints below threshold
+        int threshold = 21;
+
+        int iter = 0;
+
+
+
+        ArrayList<int[][]> puzzleList = pg.puzzleGenerator(size, puzzles); //size, puzzles
+
+        System.out.println("Puzzles generated");
+
+        for (int[][] field : puzzleList) {
+            iter++;
+
+            if(iter%10000==0)
+                System.out.println(iter + "/" + puzzles);
+
+            msf = new MultSolFinder();
+
+            int puzzleHints = 0;
+
+            if(msf.hasMultSol(field)) {
+                System.out.println("Multiple solutions, error!!!");
+            }
+
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if(field[i][j] != 0)
+                        puzzleHints++;
+                }
+            }
+            //sp.print(field);
+            if(leastHints>puzzleHints)
+                leastHints = puzzleHints;
+
+            if(puzzleHints<threshold)
+                lowHints++;
+
+            totalHints += puzzleHints;
+
+
+
+        }
+
+        double hintAverage = totalHints/puzzles;
+        System.out.println("hint average = " + hintAverage);
+        System.out.println("least hints: " + leastHints);
+
+*/
+        try {
+            //TestObjects tester = new TestObjects(classList, puzzles, hints, size); //Classlist, puzzles, hints, size
+            WriteRuntimes test = new WriteRuntimes(classList, 100000, 20, 9, "D:\\Library\\Desktop\\DataOutput");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        /*SudokuReader sr = new SudokuReader();
         SudokuPrinter sp = new SudokuPrinter();
         SudokuFileWriter sfw = new SudokuFileWriter();
         ArrayList<int[][]> list = sr.readSudoku(2, "D:\\Library\\Desktop\\sudoku.txt");
@@ -25,6 +110,10 @@ public class Main {
         for (int[][] field : list) {
             sp.print(field);
         }
+        Format formatter = new SimpleDateFormat("dd/MM-yy_HHmmss");
+        Date date = Calendar.getInstance().getTime();
+        String sDate = formatter.format(date);
+        System.out.println(sDate);*/
 
 
     }

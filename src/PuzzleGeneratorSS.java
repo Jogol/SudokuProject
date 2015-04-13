@@ -22,6 +22,7 @@ public class PuzzleGeneratorSS {
 
         ArrayList<int[][]> fieldList = new ArrayList<int[][]>();
         SolutionVerifier sv = new SolutionVerifier();
+        SudokuPrinter sp = new SudokuPrinter();
 
 
         for (int i = 0; i < number; i++) {
@@ -34,11 +35,11 @@ public class PuzzleGeneratorSS {
 
             fullField = basic.SolveSudoku(field);
 
+
             if (!sv.verifyField(fullField)) {
                 System.out.println("Incorrect field! Quitting!");
                 return null;
             } else {
-                boolean notDone = true;
                 for (int[] pos : randomPosList) {
                     int value = fullField[pos[0]][pos[1]];
                     fullField[pos[0]][pos[1]] = 0;

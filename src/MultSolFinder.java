@@ -23,7 +23,7 @@ public class MultSolFinder {
 
 
     public boolean hasMultSol(int[][] f) {
-        this.grid = f;
+        this.grid = copyOf(f);
         size = grid.length;
         sqrt = (int) Math.sqrt(size);
 
@@ -251,6 +251,16 @@ public class MultSolFinder {
             return true;
 
         return false;
+    }
+
+    public int[][] copyOf(int[][] originalArray) {
+        int[][] newArray = new int[originalArray.length][];
+
+        for (int x = 0; x < originalArray.length; x++) {
+            newArray[x] = originalArray[x].clone();
+        }
+
+        return newArray;
     }
 
 }
