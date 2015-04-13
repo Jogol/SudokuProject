@@ -23,7 +23,6 @@
  * @author Paul Varoutsos, Tom Devito
  * February 2009
  */
-package sudokusolver;
 
 import java.io.IOException;
 
