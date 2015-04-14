@@ -107,7 +107,7 @@ private Formula formula;
     private void success() {
 
         System.out.println("Formula is satisfiable");
-        System.out.println(formula.toString());
+        //System.out.println(formula.toString());
     }
 
     /**

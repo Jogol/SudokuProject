@@ -62,7 +62,7 @@ public class UnMapper {
 			output += "\n";
 		}
 
-		System.out.println(output);
+		//System.out.println(output);
 		return sudokuPuzzle;
 	}
 

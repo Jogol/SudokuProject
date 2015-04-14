@@ -27,10 +27,10 @@ public class WriteRuntimes {
         }
 
         SolutionVerifier sv = new SolutionVerifier();
-        PuzzleGeneratorSS pg = new PuzzleGeneratorSS();
+        PuzzleGeneratorMS pg = new PuzzleGeneratorMS();
         SudokuPrinter sp = new SudokuPrinter();
 
-        ArrayList<int[][]> puzzleList = pg.puzzleGenerator(size, puzzles);
+        ArrayList<int[][]> puzzleList = pg.puzzleGenerator(size, puzzles, hints);
 
         System.out.println("Done generating");
 
@@ -52,10 +52,13 @@ public class WriteRuntimes {
 
                 solver = (SuperSolver)theClass.newInstance();
 
+                sp.print(puzzle);
+
                 long start = System.nanoTime();
                 int[][] fixed = solver.SolveSudoku(puzzle);
                 long stop = System.nanoTime();
 
+                sp.print(fixed);
 
                 if (fixed == null) {
                     System.out.println(solver.getName() + " failed.");
